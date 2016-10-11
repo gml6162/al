@@ -21,4 +21,16 @@ int main()
 			printf("%d, ",num);
 		}
 	}
+
+	int s;
+	scanf("%d", &s);
+	int m;
+	m=0;
+	while(s>0)
+	{
+		m=10*m+s%10;
+		s=s/10;
+	}
+	printf("%d",m);
+	return 0;
 }
