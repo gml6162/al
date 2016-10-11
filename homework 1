@@ -9,7 +9,7 @@ int main()
 	for (int num=1;num<=n;num++)
 	{
 		bool p=true;
-		for(int j=2;j*j<num;j++)
+		for(int j=2;j*j<=(num);j++)
 		{
 			if(num%j==0)
 			{
