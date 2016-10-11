@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <iostream>
+
+using namespace std;
+int main()
+{
+	int n;
+	scanf("%d", &n);
+	for (int num=1;num<=n;num++)
+	{
+		bool p=true;
+		for(int j=2;j*j<num;j++)
+		{
+			if(num%j==0)
+			{
+				p=false;
+			}
+		}
+		if(p)
+		{
+			printf("%d, ",num);
+		}
+	}
+}
