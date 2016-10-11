@@ -1,0 +1,45 @@
+long square(int s)
+{
+	if(s<=1)
+		return 1;
+	if(memo[s]!=-1)
+		return memo[s];
+	return memo[s]=2*square(s-2)+square(s-1);
+}
+int main()
+{
+	memset(memo, -1, sizeof(memo));
+	int n;
+	scanf("%d", &n);
+	printf("%d",square(n));
+
+}
+/*int memo[1001][1001];
+int c(int n,int r)
+{
+	if(r==0||n==r)
+	{
+		return 1;
+	}
+	if (memo[n][r]!=-1)
+	{
+		return memo[n][r];
+	}
+	return memo[n][r]=c(n-1,r-1)+c(n-1,r);
+}
+int fibo(int n)
+{
+	if(n<=1)
+		return 1;
+	return fibo(n-1)+fibo(n-2);
+}
+
+int main()
+{
+	int left, right, n;
+	memset(memo,-1,sizeof(memo));
+	scanf("%d %d", &left, &right);
+	printf("%d\n", c(left,right));
+	scanf("%d", &n);
+	printf("%d", fibo(n));
+}*/
