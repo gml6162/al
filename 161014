@@ -1,0 +1,118 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<time.h>
+int main(void)
+{
+	int x, y, i, ans;
+	scanf("%d %d", &x, &y);
+	if(y>x)
+	{
+		i=x;
+		x=y;
+		y=i;
+	}
+	i=1;
+	ans=1;
+	while(i>0)
+	{
+	if(y==0)
+		ans=x;
+	else
+		i=x%y;
+		x=y;
+		y=i;
+	}
+	printf("%d", ans);
+
+	srand((unsigned)time(NULL));
+	int ans=rand()%100;
+	int guess;
+	int count=0;
+	
+	do
+	{
+		scanf("%d", &guess);
+		count++;
+		if(count>3)
+			break;
+		if(guess<ans)
+			printf("높여주세요.\n");
+		if(ans<guess)
+			printf("낮혀주세요.\n");
+	}while(guess!=ans);
+	if(count<3)
+	printf("축하합니다.\n");
+	if(count>=3)
+		printf("틀렸습니다.\n");
+
+	char letter;
+	while(1)
+	{
+		printf("소문자를 입력하시오:");
+		scanf("%c", &letter);
+		fflush(stdin);
+
+		if(letter=='Q')
+			break;
+		if(letter<'a'||letter>'z')
+			continue;
+		letter-=32;
+		printf("변환된 문자는 %c입니다.\n", letter);
+	}
+	int a, b, c;
+	for(a=1;a<=100;a++)
+		for(b=1;b<=100;b++)
+			for(c=1;c<=100;c++)
+				if(a*a+b*b==c*c)
+					printf("%d*%d+%d*%d=%d*%d\n",a,a,b,b,c,c);
+	int x, y;
+	x=0;
+	y=0;
+	for(x=-5;x<=5;x++)
+		for(y=-5;y<=5;y++)
+			if(x*x+y*y==25)
+				printf("(%d,%d)\n",x,y);
+	int i, j;
+	for(i=1;i<=10;i++)
+		{for(j=i;j<=(i+10);j++)
+			printf("%d",(j%10));
+		printf("\n");
+		}
+	int n, count=1;
+	scanf("%d", &n);
+	while(1)
+	{
+		
+		if((n/10)==0)
+			break;
+		else
+			count++;
+			n=n/10;
+	}
+	printf("%d",count);
+	int i, count=0;
+	int j;
+	for(j=1;j<=1536;j++)
+	{
+		i=j;
+		i=i%1000;
+		if(i=='3*')
+			count++;
+		i=i%100;
+		if(i=='3*')
+			count++;
+		i=i%10;
+		if(i==3)
+			count++;
+	}
+	printf("%d", count);
+	int pi, i=1;
+	for(;;)
+		{
+			pi=pi+(4/i);
+			i=i+2;
+			printf("%d\n", pi);//실패
+		}
+	
+}
