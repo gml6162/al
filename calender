@@ -1,0 +1,53 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#include<time.h>
+#define year 2016
+int main(void)
+{
+	int month, day, date, start, month_day;
+	start=5;
+	for(month=1;month<=12;month++)
+	{
+		switch(month)
+		{
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			month_day=31;
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			month_day=30;
+			break;
+		}
+		if(month==2&&(year%4==0&&year%100!=0)||year%400==0)
+			month_day=29;
+		else if(month==2)
+			month_day=28;
+	printf("\n%d년 %d월\n",year, month);
+	printf("===================\n");
+	printf("일월화수목금토\n");
+	printf("===================\n");
+	for(day=0;day<start;day++)
+		printf("  ");
+	for(date=1;date<=month_day;date++)
+	{
+		if(day==7)
+		{
+			day=0;
+			printf("\n");
+		}
+		day++;
+			printf("%2d", date);
+	}
+	printf("\n===================\n");
+	start=day;
+	}
+}
