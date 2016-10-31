@@ -1,0 +1,33 @@
+#include <stdio.h>
+int min(int arr[], int num);
+int main()
+{//삽입정렬
+	int group[] = { 3, 7, 2, 9, 18, 0, 4 };
+	int i;
+	int room, m;
+	for (i=0;i<6;i++)
+	{
+		room = min(group, i);
+		if (group[room] < group[i])
+		{
+			m = group[i];
+			group[i] = group[room];
+			group[room] = m;
+		}
+	}
+	for(i=0;i<7;i++)
+	printf("%d ", group[i]);
+}
+int min(int arr[], int num)
+{
+	int miner, k;
+	k = num;
+	miner = arr[num];
+	while (k < 7)
+	{
+		if (arr[num] > arr[k])
+			num = k;
+		k++;
+	}
+	return num;
+}
