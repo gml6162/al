@@ -1,0 +1,24 @@
+int graph[101][101];
+bool visited[101];
+int n, m;
+void dfs(int now)
+{
+	int next;
+	visited[now]=1;
+	for(next=1;next<=n;next++)
+		if(!visited[next]&&graph[now][next]==1)
+			dfs(next);
+}
+int main()
+{
+	
+	scanf("%d %d",&n, &m);
+	for(int i=1;i<=m;i++)
+	{
+		int u, v;
+		scanf("%d %d", &u, &v);
+		graph[u][v]=1;
+		graph[v][u]=1;
+	}
+	dfs(1);
+}
