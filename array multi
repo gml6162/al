@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+int main()
+{
+
+	int A[101][101];
+	int B[101][101];
+	int C[101][101];
+	int i, j, k;
+	int AR, AC;
+	int BR, BC;
+	for(i=1;i<=AR;i++)
+	{
+		for(j=1;j<=BC;j++)
+		{
+			C[i][j]=0;
+			for(k=1;k<=AC;k++)
+			{
+				C[i][j]+=A[i][k]+B[k][j];
+			}
+		}
+	}
+
+}
