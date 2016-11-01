@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+int main()
+{
+	int a[]={4,2,3,7,5,6,8,11,12,14};
+	int i, j;
+	int least, temp;
+	for(i=0;i<9;i++)
+	{
+		least=i;
+		for(j=i+1;j<10;j++)
+		{
+			if(a[j]<a[least])
+				least=j;
+		}
+	
+	temp=a[i];
+	a[i]=a[least];
+	a[least]=temp;
+	}
+	for(i=0;i<10;i++)
+		printf("%d ",a[i]); 
+}
