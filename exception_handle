@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+	int *seat;
+	int n=1, cnt, num;
+	seat = (int *)malloc(sizeof(int) * 10);
+	printf("       스크린\n");
+	printf("--------------------\n");
+	
+	while (n <= 10)
+	{
+		if (*(seat + (n - 1)) == (int)0)
+		{
+			printf("x ");
+		}
+		else
+			printf("%d ", n);
+		n++;
+	}
+	while (1)
+	{
+		printf("\n");
+		printf("몇 자리 예매하시겠습니까?(종료는 -1)");
+		scanf_s("%d", &cnt);
+		if (cnt < 0||cnt>10)
+		{
+			return 0;
+		}
+		while (cnt>=1)
+		{
+			printf("원하는 자리의 번호를 입력해주세요.");
+			scanf_s("%d", &num);
+			if (*(seat + (num - 1)) == (int)0||num>10||num<=0)
+			{
+				printf("다시 입력해주세요.\n");
+				continue;
+			}
+			*(seat + (num - 1)) = (int)0;
+			cnt--;
+		}
+		printf("       스크린\n");
+		printf("--------------------\n");
+		n = 1;
+		while (n <= 10)
+		{
+			if (*(seat + (n - 1)) == (int)0)
+			{
+				printf("x ");
+			}
+			else
+				printf("%d ", n);
+			n++;
+		}
+	}
+}
