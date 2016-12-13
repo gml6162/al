@@ -1,0 +1,119 @@
+#include <stdio.h>
+#include <stdlib.h>
+int cnt = 0;//저장된 데이터의 마지막칸+1
+
+struct person//데이터를 저장할 구조체
+{
+    char name[100];
+    int num[11];
+} typedef person;
+struct person people[100];//데이터를 저장할 구조체 배열
+
+void add(person *people)//추가 기능 구현
+{
+    int i;
+    person new_member;//새로운 구조체 선언
+    printf("Write name\n");
+    scanf("%s", new_member.name);
+    printf("Write number\n");
+    for (i = 0; i<11; i++)
+        scanf("%1d", &new_member.num[i]);
+    people[cnt] = new_member;
+    cnt++;
+}
+
+void delete_user(person *people)//제거 기능 구현
+{
+    if (cnt == 0)
+        return;
+    people[cnt - 1] = { 0 };
+    cnt--;
+    printf("Complete\n");
+}
+
+
+void search(person *people)//검색 기능 구현
+{
+    int i, j;
+    int search_num[11];
+    printf("Write number\n");
+    for (i = 0; i<11; i++)
+        scanf("%1d", &search_num[i]);
+    for (i = 0; i<cnt; i++)
+    {
+        for (j = 0; j<11; j++)
+        {
+            if (search_num[j] != people[i].num[j])
+                break;
+        }
+        if (j == 11)
+            printf("%s",people[i].name);
+
+    }
+}
+
+void update(person *people)//수정 기능 구현
+{
+    int i, j;
+    int search_num[11];
+    printf("Write number\n");
+    for (i = 0; i<11; i++)
+        scanf("%1d", &search_num[i]);
+    for (i = 0; i<cnt; i++)
+    {
+        for (j = 0; j<11; j++)
+        {
+            if (search_num[j] != people[i].num[j])
+                break;
+        }
+        if (j == 11)
+        {
+            person renew_member;
+            printf("Write name\n");
+            scanf("%s", renew_member.name);
+            printf("Write number\n");
+            for (j = 0; j<11; j++)
+                scanf("%1d", &renew_member.num[i]);
+            people[i] = renew_member;
+        }
+
+    }
+}
+
+int menu(void)
+{
+    int i, choice;
+    printf("Write number for perform\n");
+    printf("1 add\n2 delete\n3 search\n4 update\n");
+    scanf("%d", &choice);
+    switch (choice)//사용자 입력 번호에 따른 기능 수행
+    {
+    case 1:
+        add(people);
+        break;
+
+    case 2:
+        delete_user(people);
+        break;
+
+    case 3:
+        search(people);
+        break;
+
+    case 4:
+        update(people);
+        break;
+
+    default:
+        return 0;
+    }
+    return 1;
+}
+
+int main(void)
+{
+    while (menu())//메뉴 불러오기
+    {
+    }
+    return 0;
+}
