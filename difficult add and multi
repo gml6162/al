@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct number
+{
+	int a;
+	int b;
+}typedef number;
+
+int add(int a, int b)
+{
+	return a + b;
+}
+
+int multifly(int a, int b)
+{
+	return a*b;
+}
+
+int(*getadd())(int, int)
+{
+	return add;
+}
+
+int(*getmulty())(int, int)
+{
+	return multifly;
+}
+
+int main()
+{
+	number num;
+	scanf("%d %d", &num.a, &num.b);
+	printf("%d\n", getadd()(num.a, num.b));
+	printf("%d", getmulty()(num.a, num.b));
+	return 0;
+}
